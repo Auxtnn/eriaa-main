@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <section class="form-body">
+        <div class="content-form">
+          <div class="text">
+            Create Your Account
+          </div>
+          <form action="/register" method="post">
+
+            <div class="field">
+                <input name="name" type="text" required>
+                <span class="fas fa-user"></span>
+                <label>Name</label>
+             </div>
+             <div class="field">
+                <input name="email" type="text" required>
+                <span class="fas fa-envelope"></span>
+                <label>Email</label>
+             </div>
+             <div class="field">
+                <input name="password" type="password" required>
+                <span class="fas fa-lock"></span>
+                <i class="fa fa-fw fa-eye toggle-password field-icon" onclick="myToggle()"></i>
+                <label>Create Password</label>
+             </div>
+             <div class="field">
+                <input name="password" type="password" required>
+                <span class="fas fa-lock"></span>
+                <i class="fa fa-fw fa-eye toggle-password field-icon" onclick="myToggle()"></i>
+                <label>Confirm Password</label>
+             </div>
+           
+             <button type="submit" class="sign-btn">Signup</button>
+             <div class="sign-up">
+                Already have an account?
+                <a href="">Login</a>
+             </div>
+          </form>
+       </div>
+      </section>
+
+      <script src="js/jquery-3.2.1.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/plugins/owl.carousel.min.js"></script>
+      <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!-- add blog post on admin dashboard -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/adminhead.ejs') %>
+</head>
+
+<body>
+    <%- include('./partials/adminnav.ejs') %>
+            
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addPostModalLabel">Add Post</h5>
+                        <button type="button" class="close" data-dismiss="modal" data-bs-toggle="modal">
+                            <a href="/blogpost"><span aria-hidden="true">&times;</span></a>
+                        
+                    
+                    </div>
+                    
+                    <div class="modal-body">
+                        <form method="POST" action="/myblogs">
+                            <div class="form-group">
+                                <label for="postTitle">Title</label>
+                                <input type="text" class="form-control" id="postTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="postContent">Content</label>
+                                <textarea class="form-control" id="postContent" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="postAuthor">Author</label>
+                                <input type="text" class="form-control" id="postAuthor" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="postDate">Date</label>
+                                <input type="date" class="form-control" id="postDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="postImage">Image</label>
+                                <input type="file" class="form-control-file" id="postImage" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="/blogpost">Cancel</a></button>
+                                <input type="submit" value="Add" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Content End -->
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    
+  
+      <!-- Template Javascript -->
+      <script src="/js/admin.js"></script>>
+    
+  <script src="js/plugins/owl.carousel.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>

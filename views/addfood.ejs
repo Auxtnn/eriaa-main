@@ -1,0 +1,74 @@
+<!-- add food on admin dashboard -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/adminhead.ejs') %>
+</head>
+
+<body>
+    <%- include('./partials/adminnav.ejs') %>
+            
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addPostModalLabel">Add Food</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <a href="/foodmenu"><span aria-hidden="true">&times;</span></a>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <form method="POST" action="/mymenu">
+                            <div class="form-group">
+                                <label for="postName">Title</label>
+                                <input type="text" class="form-control" id="postName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="postDescription">Description</label>
+                                <textarea class="form-control" id="postDescription" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="postCategory">Category</label>
+                                <select name="category" id="foodCategory">
+                                <option value="Grilled">Grilled</option>
+                                <option value="Cooked">Cooked</option>
+                                <option value="Baked">Baked</option>
+                                <option value="Beverages">Beverages</option>
+                                <option value="Deserts">Deserts</option>
+                               </select>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="postPrice">Price</label>
+                                <input type="number" class="form-control" id="postPrice" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="postImage">Image</label>
+                                <input type="file" class="form-control-file" id="postImage" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="/food-posts">Cancel</a></button>
+                                <input type="submit" value="Add" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+        </div>
+        <!-- Content End -->
+    </div>
+
+      <!-- JavaScript Libraries -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  
+      <!-- Template Javascript -->
+      <script src="/js/admin.js"></script>>
+    
+  <script src="js/plugins/owl.carousel.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>

@@ -76,7 +76,7 @@ exports.loginUser = asyncHandler(async (req, res) => {
 
 // @desc    Get user data
 // @route   GET /api/users/me
-// @access  Private
+// @access  Privatee
 exports.getMe = asyncHandler(async (req, res) => {
   res.status(200).json(req.user)
 })

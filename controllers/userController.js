@@ -4,10 +4,40 @@ const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
 require('dotenv').config();
 
-// check for errors
+// render login page
 exports.loginUserGet = (req, res) => {
   res.render('userLogin')
 };
+
+// check for errors
+const handleErrors = (err) => {
+  let errors = { email: '', password: '' }
+
+  // handling incorrect email
+  if (err.message === 'incorrect email') {
+    errors.email = 'Your email is unregistered';
+  }
+  // for existing email replication
+  if (err.code === 11000) {
+    errors.email = 'This email is registered already';
+    return errors;
+  }
+
+  // handling password error
+  if (err.message === 'incorrect password') {
+    errors.message = 'The password is incorrect';
+  }
+
+  // Handling validation error
+  if (err.message.includes('user validation failed')) {
+    Object.values(err.errors).forEach(({ properties }) => {
+      errors[properties.path] = properties.message;
+    });
+  }
+
+  return errors;
+}
+
 
 // @desc    Register new user
 // @route   POST /api/users

@@ -32,7 +32,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-app.use("/api/users", routes);
+// app.use("/api/users", routes);
+
+//  user routes
+app.use("/", routes)
+
 app.use("/", blogCrudRoutes);
 app.use("/", adminRoutes);
 app.use("/", menuCrudRoutes);

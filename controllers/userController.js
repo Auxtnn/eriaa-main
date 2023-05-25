@@ -4,10 +4,10 @@ const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
 require('dotenv').config();
 
-
+// check for errors
 exports.loginUserGet = (req, res) => {
   res.render('userLogin')
-  };
+};
 
 // @desc    Register new user
 // @route   POST /api/users

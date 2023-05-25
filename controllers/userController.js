@@ -39,16 +39,29 @@ const handleErrors = (err) => {
 }
 
 
+// Generate JWT
+const maxAge = 3 * 24 * 60 * 60
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: maxAge,
+  })
+}
+
+// Rendering signup Page
+exports.registerUser = (req, res) => {
+  res.render('userSignup')
+}
+
 // @desc    Register new user
-// @route   POST /api/users
+// @route   POST /
 // @access  Public
 exports.registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body
 
-  if (!name || !email || !password) {
-    res.status(400)
-    throw new Error('Please add all fields')
-  }
+  // if (!name || !email || !password) {
+  //   res.status(400)
+  //   throw new Error('Please add all fields')
+  // }
 
   // Check if user exists
   const userExists = await User.findOne({ email })
@@ -63,23 +76,38 @@ exports.registerUser = asyncHandler(async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, salt)
 
   // Create user
+  try {
   const user = await User.create({
     name,
     email,
     password: hashedPassword,
   })
 
-  if (user) {
-    res.status(201).json({
-      _id: user.id,
-      name: user.name,
-      email: user.email,
-      token: generateToken(user._id),
-    })
-  } else {
-    res.status(400)
-    throw new Error('Invalid user data')
+  // checking if user exists
+  // if (user) {
+  //   res.status(201).json({
+  //     _id: user.id,
+  //     name: user.name,
+  //     email: user.email,
+  //     token: generateToken(user._id),
+  //   })
+  // } else {
+  //   res.status(400)
+  //   throw new Error('Invalid user data')
+  // }
+
+  // jwt session loader
+  const token = createToken(user._id);
+  res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
+  res.status(201).json({ user: user._id }); 
+
+  } 
+  catch (err) {
+    const errors = handleErrors(err);
+    res.status(400).json({ errors });
   }
+
+  
 })
 
 // @desc    Authenticate a user
@@ -111,12 +139,7 @@ exports.getMe = asyncHandler(async (req, res) => {
   res.status(200).json(req.user)
 })
 
-// Generate JWT
-const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: '30d',
-  })
-}
+
 
 // module.exports = {
 //   registerUser,

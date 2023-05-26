@@ -167,4 +167,5 @@ window.onclick = function(event) {
     }
 }
 
+// addding signup function
 

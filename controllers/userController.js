@@ -55,7 +55,8 @@ exports.registerUser = (req, res) => {
 // @desc    Register new user
 // @route   POST /
 // @access  Public
-exports.registerUser = asyncHandler(async (req, res) => {
+
+exports.oregisterUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body
 
   // if (!name || !email || !password) {

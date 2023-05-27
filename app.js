@@ -9,6 +9,8 @@ const blogCrudRoutes = require("./routes/blogCrudRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const { errorHandler } = require("./middleware/errorMiddleware");
 const bodyParser = require("body-parser");
+
+// const cookieParser = require('cookie-parser');
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 
@@ -31,6 +33,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
+// app.use(cookieParser());
 
 // app.use("/api/users", routes);
 
@@ -42,6 +45,6 @@ app.use("/", adminRoutes);
 app.use("/", menuCrudRoutes);
 app.use("/", mainRoutes);
 app.use("/", reservationRoutes);
-app.use(errorHandler);
+// app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

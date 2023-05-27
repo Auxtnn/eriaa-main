@@ -52,17 +52,39 @@ exports.registerUser = (req, res) => {
   res.render('userSignup')
 }
 
+
+exports.oregisterUser = async (req, res) => {
+  const { name, email, matchedPassword } = req.body;
+  try {
+    const user = await User.create({
+      name, 
+      email, 
+      matchedPassword
+    });
+    const token = createToken(user._id);
+    res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
+    res.status(201).json({ user: user._id });
+
+
+  } catch (err) {
+
+    console.log(err)
+    // const errors = handleErrors(err);
+    // res.status(400).json({ errors });
+  }
+}
+
 // @desc    Register new user
 // @route   POST /
 // @access  Public
 
-exports.oregisterUser = asyncHandler(async (req, res) => {
+exports.registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body
 
-  // if (!name || !email || !password) {
-  //   res.status(400)
-  //   throw new Error('Please add all fields')
-  // }
+   if (!name || !email || !password) {
+     res.status(400)
+     throw new Error('Please add all fields')
+   }
 
   // Check if user exists
   const userExists = await User.findOne({ email })
@@ -84,18 +106,18 @@ exports.oregisterUser = asyncHandler(async (req, res) => {
     password: hashedPassword,
   })
 
-  // checking if user exists
-  // if (user) {
-  //   res.status(201).json({
-  //     _id: user.id,
-  //     name: user.name,
-  //     email: user.email,
-  //     token: generateToken(user._id),
-  //   })
-  // } else {
-  //   res.status(400)
-  //   throw new Error('Invalid user data')
-  // }
+ // checking if user exists
+  if (user) {
+    res.status(201).json({
+      _id: user.id,
+      name: user.name,
+      email: user.email,
+      token: generateToken(user._id),
+    })
+  } else {
+    res.status(400)
+    throw new Error('Invalid user data')
+   }
 
   // jwt session loader
   const token = createToken(user._id);

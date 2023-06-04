@@ -10,7 +10,7 @@ const adminRoutes = require("./routes/adminRoutes");
 const { errorHandler } = require("./middleware/errorMiddleware");
 const bodyParser = require("body-parser");
 
-// const cookieParser = require('cookie-parser');
+//const cookieParser = require('cookie-parser');
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 
@@ -24,6 +24,7 @@ mongoose
   })
   .catch((err) => {
     console.log(err);
+    console.log('cant connect to db')
   });
 
 const app = express();

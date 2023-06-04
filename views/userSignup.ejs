@@ -52,76 +52,79 @@
       <script src="js/plugins/owl.carousel.min.js"></script>
       <script src="js/index.js"></script>
       <script>
-         const form = document.querySelector('form');
-         const emailError = document.querySelector('.email.error');
-         const passwordError = document.querySelector('.password.error')
+         document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            const emailError = document.querySelector('.email.error');
+            const passwordError = document.querySelector('.password.error')
 
-         form.addEventListener('submit', async (e) => {
-            e.preventDefault();
+            form.addEventListener('submit', async (e) => {
+               e.preventDefault();
 
-            // reset errors
-            emailError.textContent = '';
-            passwordError.textContent = '';
+               // reset errors
+               emailError.textContent = '';
+               passwordError.textContent = '';
 
-            // get values
-            const name = form.name.value;
-            const email = form.email.value;
-            const password = form.password.value;
-            const confirmPassword = form.confirmPassword.value;
-            var matchedPassword;
+               // get values
+               const name = form.name.value;
+               const email = form.email.value;
+               const password = form.password.value;
+               const confirmPassword = form.confirmPassword.value;
+               var matchedPassword;
 
-            // check if password and confirm password match
-            const checkPasswordMatch = () => {
-               if (password === confirmPassword) return true;
-               return false;
-            }
+               // check if password and confirm password match
+               const checkPasswordMatch = () => {
+                  if (password === confirmPassword) return true;
+                  return false;
+               }
 
 
-            // sending password if only it matched
-            try {
-               if (checkPasswordMatch()) {
-                matchedPassword = password;
-               } 
-            } catch (error) {
+               // sending password if only it matched
+               try {
+                  if (checkPasswordMatch()) {
+                  matchedPassword = password;
+                  } 
+               } catch (error) {
+                  console.log(error)
+               }
+
+               //   // Create the data object with the form values
+               var data = {
+                  name,
+                  email,
+                  matchedPassword
+               }  
+
+               // Send the request to the '/register' endpoint
+               fetch('/register', {
+               method: 'POST',
+               headers: {
+                  'Content-Type': 'application/json'
+               },
+               body: JSON.stringify(data)
+            })
+            .then(res => {
+               if (res.ok) {
+                  console.log(res)
+                  console.log('Data successfully sent to backend')
+               } else {
+                  emailError.textContent = res.errors.email;
+                  passwordError.textContent = res.errors.password;
+               }
+               if (data.user) {
+                 location.assign('/');
+               }
+            })
+            .catch(error => {
                console.log(error)
-            }
-
-            //   // Create the data object with the form values
-            var data = {
-               name,
-               email,
-               matchedPassword
-            }  
-
-            // Send the request to the '/register' endpoint
-            fetch('/register', {
-            method: 'POST',
-            headers: {
-               'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-           })
-           .then(res => {
-            if (res.ok) {
-               console.log(res)
-               console.log('Data successfully sent to backend')
-            } else {
-               emailError.textContent = res.errors.email;
-               passwordError.textContent = res.errors.password;
-            }
-            if (data.user) {
-               location.assign('/');
-            }
-           })
-           .catch(error => {
-            console.log(error)
-           });
+            });
 
 
-            // console.log(email, password, confirmPassword, name)
-            // console.log(checkPasswordMatch())
-            // console.log(matchedPassword)
-         })
+               // console.log(email, password, confirmPassword, name)
+               // console.log(checkPasswordMatch())
+               // console.log(matchedPassword)
+            })
+         });
+         
       </script>
 </body>
 </html>

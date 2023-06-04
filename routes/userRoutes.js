@@ -5,8 +5,8 @@ const userController = require('../controllers/userController')
 const { protect } = require("../middleware/authMiddleware");
 
 
-router.get('/register', userController.registerUser)
-router.post('/register', userController.registerUser)
+router.get('/register', userController.registerUser_get)
+router.post('/register', userController.registerUser_post)
 
 router.get('/login', userController.loginUserGet)
 router.post('/login', userController.loginUser)

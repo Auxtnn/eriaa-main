@@ -48,21 +48,17 @@ const generateToken = (id) => {
 }
 
 // Rendering signup Page
-exports.registerUser = (req, res) => {
+exports.registerUser_get = (req, res) => {
   res.render('userSignup')
 }
+
 
 // @desc    Register new user
 // @route   POST /
 // @access  Public
 
-exports.oregisterUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body
-
-  // if (!name || !email || !password) {
-  //   res.status(400)
-  //   throw new Error('Please add all fields')
-  // }
+exports.registerUser_post = asyncHandler(async (req, res) => {
+  const { name, email, matchedPassword } = req.body
 
   // Check if user exists
   const userExists = await User.findOne({ email })
@@ -74,33 +70,20 @@ exports.oregisterUser = asyncHandler(async (req, res) => {
 
   // Hash password
   const salt = await bcrypt.genSalt(10)
-  const hashedPassword = await bcrypt.hash(password, salt)
+  const hashedPassword = await bcrypt.hash(matchedPassword, salt)
 
   // Create user
   try {
   const user = await User.create({
     name,
     email,
-    password: hashedPassword,
+    matchedPassword: hashedPassword,
   })
 
-  // checking if user exists
-  // if (user) {
-  //   res.status(201).json({
-  //     _id: user.id,
-  //     name: user.name,
-  //     email: user.email,
-  //     token: generateToken(user._id),
-  //   })
-  // } else {
-  //   res.status(400)
-  //   throw new Error('Invalid user data')
-  // }
-
   // jwt session loader
-  const token = createToken(user._id);
-  res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
-  res.status(201).json({ user: user._id }); 
+  // const token = createToken(user._id);
+  // res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
+  // res.status(201).json({ user: user._id }); 
 
   } 
   catch (err) {
@@ -108,29 +91,54 @@ exports.oregisterUser = asyncHandler(async (req, res) => {
     res.status(400).json({ errors });
   }
 
+  res.redirect('/login');
   
 })
 
 // @desc    Authenticate a user
 // @route   POST /api/users/login
 // @access  Public
+
+
 exports.loginUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body
+  const { email, password } = req.body; 
 
-  // Check for user email
-  const user = await User.findOne({ email })
+  try {
+    const user = await User.findOne({ email });
 
-  if (user && (await bcrypt.compare(password, user.password))) {
-    res.json({
-      _id: user.id,
-      name: user.name,
-      email: user.email,
-      token: generateToken(user._id),
-    })
-  } else {
-    res.status(400)
-    throw new Error('Invalid credentials')
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'User not found'
+      });
+    }
+
+    const passwordMatch = await bcrypt.compare(password, user.matchedPassword) 
+     
+      if (!passwordMatch) {
+        return res.status(401).json({
+          success: false,
+          message: 'Incorrect Password'
+        });
+      
+    }
+
+    // const token = createToken(user._id);
+    // res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+    // res.status(200).json({ user: user._id });
+
+    // on success redirect to homepage
+    res.redirect('/')
+
+  } catch(err) {
+
+    res.status(500).json({
+      success: false,
+      message: 'Error occurred while logging in',
+      error: error.message
+    });
   }
+
 })
 
 // @desc    Get user data

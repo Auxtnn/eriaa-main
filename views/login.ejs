@@ -6,14 +6,14 @@
 </head>
 <body>
 
-  <form class="form-01-main" action="/admin" method="POST">
+  <form class="form-01-main" action="/admin/login" method="POST">
       <div class="form-cover">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="form-sub-main">
               <div class="_main_head_as">
-                  <img src="images/7309678.jpg">
+                  <img src="/images/7309678.jpg">
                   <h2>Admin Login</h2>
                    <p>Please enter  your Login details !</p>
               </div>
@@ -24,12 +24,6 @@
               <div class="form-group">                                              
                 <input id="password" type="password" class="form-control" name="password" placeholder="********" required>
                 <i class="fa fa-fw fa-eye toggle-password field-icon" onclick="myToggle()"></i>
-              </div>
-
-              <div class="form-group">
-                <div class="check_box_main">
-                  <a href="#" class="pas-text">Forgot Password?</a>
-                </div>
               </div>
 
               <div class="form-group">
@@ -45,9 +39,8 @@
     </form>
     
 
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/owl.carousel.min.js"></script>
-    <script src="js/index.js"></script>
+
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <script src="/js/admin.js"></script>
 </body>
 </html>

@@ -45,6 +45,5 @@ const reservationSchema = new mongoose.Schema({
   });
   
   // Create the reservation model
-  const Reservation = mongoose.model('Reservation', reservationSchema);
-  module.exports = Reservation
+  module.exports = mongoose.model('Reservation', reservationSchema);
   

@@ -5,6 +5,7 @@
     <%- include('./partials/head.ejs') %>
 </head>
 <body>
+    
     <%- include('./partials/nav.ejs') %>
   <!-- /////////////////header-started/////////////////////// --> 
  
@@ -35,8 +36,8 @@
                         <div class="sup-content">
                             <div class="head-content">
                                 <h2>Leave A Message Here</h2>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, neque ipsam obcaecati
-                                    quis vitae odit aliquid libero sapiente possimus. Distinctio, qui voluptatibus </p>
+                                <p>This is the place where you can leave us a message, and our team will be thrilled to assist you.
+                                    Whether you have a question about our meal, need assistance with an order, or simply want to share our thoughts, we're here to listen.</p>
                             </div>
 
                             <div class="contact-title">
@@ -53,19 +54,19 @@
 
                     <div class="sup-card-contact-0a">
                         <div class="contact-a1">
-                            <form>
+                            <form action="/contact-us" method="post">
                                 <div class="dived d-flex">
                                     <div class="form-group">
                                         <div class="form-sup">
                                             <div class="cal-01">
                                                 <input type="name" name="name" id="" class="form-control"
-                                                    placeholder="Enter Your Name">
+                                                    placeholder="Enter Your Name" required>
                                                 <i class="flaticon-user"></i>
                                             </div>
 
                                             <div class="cal-01">
                                                 <input type="phone" name="phone" id="" class="form-control"
-                                                    placeholder="Phone Number">
+                                                    placeholder="Phone Number" required>
                                                 <i class="flaticon-call"></i>
                                             </div>
                                         </div>
@@ -75,20 +76,20 @@
                                         <div class="form-sup">
                                             <div class="cal-01">
                                                 <input type="email" name="email" id="" class="form-control"
-                                                    placeholder="Email">
+                                                    placeholder="Email" required>
                                                 <i class="flaticon-email"></i>
                                             </div>
                                             <div class="cal-01">
                                                 <input type="text" name="subject" id="" class="form-control"
-                                                    placeholder="Enter Subject">
+                                                    placeholder="Enter Subject" required>
                                                 <i class="flaticon-type"></i>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="ca-ool">
-                                        <textarea name="text" cols="120" rows="10" class="form-control"
-                                            placeholder="Message"></textarea>
+                                        <textarea name="message" cols="120" rows="10" class="form-control"
+                                            placeholder="Message" required></textarea>
                                     </div>
                                     <div class="submit">
                                         <input type="submit" value="Submit" id="submit">
@@ -115,6 +116,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins/owl.carousel.min.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/cart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

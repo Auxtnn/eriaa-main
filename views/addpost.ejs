@@ -14,35 +14,32 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="addPostModalLabel">Add Post</h5>
                         <button type="button" class="close" data-dismiss="modal" data-bs-toggle="modal">
-                            <a href="/blogpost"><span aria-hidden="true">&times;</span></a>
+                            <a href="/blog-posts"><span aria-hidden="true">&times;</span></a>
                         
                     
                     </div>
                     
                     <div class="modal-body">
-                        <form method="POST" action="/myblogs">
+                        <form method="POST" action="/blog-post">
                             <div class="form-group">
                                 <label for="postTitle">Title</label>
-                                <input type="text" class="form-control" id="postTitle" required>
+                                <input type="text" name="title" class="form-control" id="postTitle" required>
                             </div>
                             <div class="form-group">
                                 <label for="postContent">Content</label>
-                                <textarea class="form-control" id="postContent" rows="5" required></textarea>
+                                <textarea class="form-control" name="content" id="postContent" rows="5" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="postAuthor">Author</label>
-                                <input type="text" class="form-control" id="postAuthor" required>
+                                <input type="text" name="author" class="form-control" id="postAuthor" required>
                             </div>
-                            <div class="form-group">
-                                <label for="postDate">Date</label>
-                                <input type="date" class="form-control" id="postDate" required>
-                            </div>
+                        
                             <div class="form-group">
                                 <label for="postImage">Image</label>
-                                <input type="file" class="form-control-file" id="postImage" required>
+                                <input type="file" name="image" class="form-control-file" id="postImage" required>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="/blogpost">Cancel</a></button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="/blog-posts">Cancel</a></button>
                                 <input type="submit" value="Add" class="btn btn-primary">
                             </div>
                         </form>
@@ -63,10 +60,8 @@
     
   
       <!-- Template Javascript -->
-      <script src="/js/admin.js"></script>>
-    
-  <script src="js/plugins/owl.carousel.min.js"></script>
-  <script src="js/index.js"></script>
+<script src="/js/admin.js"></script>>
+  <script src="/js/index.js"></script>
 </body>
 
 </html>

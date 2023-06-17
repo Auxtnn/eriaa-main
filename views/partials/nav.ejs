@@ -1,62 +1,113 @@
-<!-- /////////////////header-started/////////////////////// --> 
+ <!-- ? Preloader Start -->
+ <div id="preloader-active">
+  <div class="preloader d-flex align-items-center justify-content-center">
+      <div class="preloader-inner position-relative">
+          <div class="preloader-circle"></div>
+          <div class="preloader-img pere-text">
+            <img src="/images/banner/logo pnggg.png" alt="logo">
+          </div>
+      </div>
+  </div>
+</div>
 
 <header>
-    <nav class="navbar navbar-expand-md navbar-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="images/banner/logo pnggg.png" alt="logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <div class="container-fluid">
+      
+      <a class="navbar-brand" href="/">
+        <img src="/images/banner/logo pnggg.png" alt="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></i>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto menu">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about-us">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/menu">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact-us">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cart">
+              <i class="fa fa-shopping-cart"></i>
+              <span class="cart-count"></span>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav book">
+          <li class="nav-item">
+            <a class="nav-link" href="/reservation">Reservation</a>
+          </li>
+        </ul>
+
        
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto menu">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about-us">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/menu">Our Menu</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/blog">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/contact-us">Contact Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/cart">
-                <i class="fa fa-shopping-cart"></i>
-                <span class="cart-count"></span>
+          
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                  <img class="rounded-circle me-lg-2" src="/images/7309678.jpg" alt="" style="width: 40px; height: 40px;">
+                  <span class="d-none d-lg-inline-flex"></span>
               </a>
+              <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                  <a href="/logout" class="dropdown-item">Log Out</a>
+              </div>
             </li>
-          </ul>
-
-          <ul class="navbar-nav book">
+      
             <li class="nav-item">
-              <a class="nav-link" href="/book-a-table">Book a Table</a>
+              <a class="nav-link" href="/login">Login</a>
             </li>
-          </ul>
-          <ul class="navbar-nav d-flex flex-row me-1">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
-            data-mdb-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user mx-1"></i></a>
-            <!-- Dropdown menu -->
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li>
-                    <a class="dropdown-item" href="#">My account</a>
-                </li>
+         
+        
 
-                <li>
-                    <a class="dropdown-item" href="#">Log out</a>
-                </li>
-            </ul>
-        </li>
-      </ul>
-        </div>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
+
+<!-- <header>
+  <div id="menu-jk" class="main-nav">
+      <div class="container">
+          <div class="row">
+              <div class="menu-toggle"></div>
+              <div class="logo">
+                <img src="/images/banner/logo pnggg.png" alt="logo">
+              </div>
+
+              <div class="my-nav">
+                  <div class="menu">
+                      <ul>
+                          <li><a href="/">Home</a></li>
+                          <li><a href="/about">About Us</a></li>
+                          <li><a href="#">Our Menu</a></li>
+                          <li> <a href="#">Blog</a> </li>
+                          <li><a href="moments.html">Contact Us</a></li> 
+                          <li><a class="nav-link" href="/cart">
+                          <i class="fa fa-shopping-cart"></i>
+                          <span class="cart-count"></span></a></li>
+                          <li><a href="/reservation">Reservation</a></li>
+                          
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">email</a>
+                            <ul class="dropdown-menu">
+                              <li><a href="/">Login</a></li>
+                            </ul>
+                        </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</header> -->

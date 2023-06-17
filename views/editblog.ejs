@@ -1,18 +1,11 @@
-<!-- for editing blog list on admin dashboard -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <%- include('./partials/adminhead.ejs') %>
 </head>
+
 <body>
-    
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
     <%- include('./partials/adminnav.ejs') %>
             
     <div class="modal-dialog" role="document">
@@ -20,35 +13,37 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="addPostModalLabel">Edit Post</h5>
                 <button type="button" class="close" data-dismiss="modal" data-bs-toggle="modal">
-                    <a href="/blogpost"><span aria-hidden="true">&times;</span></a>
+                    <a href="/blog-posts"><span aria-hidden="true">&times;</span></a>
                 
             
             </div>
             
             <div class="modal-body">
-                <form method="POST" action="/<%= blogPost._id %>?_method=PUT">
+               
+                    <form method="POST" action="/blog-post/<%= blog._id %>?_method=PUT">
+
                     <div class="form-group">
                         <label for="postTitle">Title</label>
-                        <input type="text" class="form-control" value="<%= blogPost.title %>" id="postTitle" required>
+                        <input type="text" name="title" class="form-control" value="<%= blog.title %>" id="postTitle" required>
                     </div>
                     <div class="form-group">
                         <label for="postContent">Content</label>
-                        <textarea class="form-control" id="postContent" rows="5" required><%= blogPost.content %></textarea>
+                        <textarea class="form-control" name="content" id="postContent" rows="5" required><%= blog.content %></textarea>
                     </div>
                     <div class="form-group">
                         <label for="postAuthor">Author</label>
-                        <input type="text" class="form-control" value="<%= blogPost.author %>" id="postAuthor" required>
+                        <input type="text" name="author" class="form-control" value="<%= blog.author %>" id="postAuthor" required>
                     </div>
                     <div class="form-group">
                         <label for="postDate">Date</label>
-                        <input type="date" class="form-control" value="<%= blogPost.author %>" id="postDate" required >
+                        <input type="date" class="form-control" value="<%= blog.timeCreated.toLocaleDateString() %>" id="postDate" required >
                     </div>
                     <div class="form-group">
                         <label for="postImage">Image</label>
-                        <input type="file" class="form-control-file" value="<%= blogPost.image %>" id="postImage" required>
+                        <input type="file" name="image" class="form-control-file" value="<%= blog.image %>" id="postImage" required>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="/blogpost">Cancel</a></button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="/blog-posts">Cancel</a></button>
                         <input type="submit" value="Update" class="btn btn-primary">
                     </div>
                 </form>
@@ -57,26 +52,12 @@
  
 
 
-    <h1>Edit Blog Post</h1>
-
-<form action="/blog method="POST">
-  <div>
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" value="<%= blogPost.title %>" required>
-  </div>
-  <div>
-    <label for="content">Content:</label>
-    <textarea id="content" name="content" required><%= blogPost.content %></textarea>
-  </div>
-  <button type="submit">Update</button>
-</form>
-
-<a href="/blog">Back to Blog</a>
 
     <!-- Template Javascript -->
-    <script src="/js/admin.js"></script>
   
-<script src="js/plugins/owl.carousel.min.js"></script>
-<script src="js/index.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/admin.js"></script>
+<script src="/js/index.js"></script>
 </body>
 </html>

@@ -1,24 +1,17 @@
+let reservationSubmitted = false;
+// let contactSubmitted = false;
+
+
+
 // home page
 exports.getIndex = (req, res) =>{
     res.render('index')
 }
 
-exports.getLogin = (req, res) => {
-    res.render('login')
-}
-
-exports.getAdmin = (req, res) => {
-    res.render('admin')
-}
-// thankyou page
-exports.getThankYou = (req, res) => {
-    res.render('thankyou')
+  // thankyou page for contact
+exports.getThankYouContact = (req, res) => {
+    res.render('thankYouContact')
   }
-
-// contact us page
-exports.getContact = (req, res) =>{
-    res.render('contact')
-}
 
 // about us page
 exports.getAbout = (req, res) =>{

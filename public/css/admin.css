@@ -239,3 +239,79 @@
     margin-bottom: 30px;
   }
   /* admin dashboard end */
+
+  /* Responsive Styles */
+@media (max-width: 991.98px) {
+  .sidebar {
+    width: 100%;
+    margin-left: -100%;
+    transition: 0.5s;
+  }
+  
+  .sidebar.open {
+    margin-left: 0;
+  }
+  
+  .content {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .content.open {
+    margin-left: 250px;
+  }
+}
+
+table{
+  width: 100%;
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .table-responsive {
+    overflow-x: auto;
+    display: block;
+  }
+
+  .table {
+    width: 100%;
+  }
+
+  .table thead,
+  .table tbody,
+  .table tfoot,
+  .table tr,
+  .table th,
+  .table td {
+    display: block;
+  }
+
+  .table tbody tr {
+    border: none;
+  }
+
+  .table thead th {
+    display: none;
+  }
+
+  .table tbody td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+  }
+
+  .table tbody td:before {
+    position: absolute;
+    top: 0;
+    left: 6px;
+    width: 55%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+
+  .table tfoot {
+    display: none;
+  }
+}

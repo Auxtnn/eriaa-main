@@ -1,1 +1,65 @@
 <!-- here is meant to contain code that would display the details of each blog on the admin dashboard on click -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/adminhead.ejs') %>
+</head>
+
+<body>
+    <%- include('./partials/adminnav.ejs') %>
+            
+	<div class="col-md-11 col-lg-11 main-content">
+		<h1>Blog Posts</h1>
+		<div class="d-flex justify-content-between align-items-center mb-3">
+			<h2>Post List</h2>
+			<a class="nav-link" href=""><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPostModal">Add Post</button></a>
+		</div>
+	
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Title</th>
+					<th scope="col">Author</th>
+					<th scope="col">Date</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% blogs.forEach((blog) => { %>
+					<tr>
+						<td><%- blog.title %></td>
+						<td><%= blog.content %></td>
+					
+						<td>
+							<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editPostModal">
+								<a href="blog-post/edit/<%= blog.id %> ">Edit</a></button>
+							<form method="POST" action="/blog-post/<%=blog.id%>?_method=DELETE"">
+								<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+							</form>
+						</td> 
+					</tr>
+				<% }); %>
+			</tbody>
+		</table>
+	</div>
+	
+        </div>
+        <!-- Content End -->
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="/js/admin.js"></script>
+  
+
+<script src="js/index.js"></script>
+</body>
+
+</html>

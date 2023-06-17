@@ -27,6 +27,7 @@
 
     <main>
         <section class="container">
+
           
           <div class="table-responsive">
             <table class="table">
@@ -34,8 +35,8 @@
                 <tr>
                   <th>Meal Name</th>
                   <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Subtotal</th>
+                  <th>Qty</th>
+                  <th>SubTot</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -44,20 +45,29 @@
               <tfoot>
                 <tr>
                   <td colspan="3" class="total">Total:</td>
-                  <td colspan="2" class="total" id="cart-total">$0</td>
+                  <td colspan="2" class="total" id="cart-total">CA$0</td>
                 </tr>
               </tfoot>
             </table>
           </div>
+
+          <div class="submit text-center">
+            <button type="button" id="checkout-button">Checkout</button>
+        </div>
+
+      
         </section>
       </main>
       
       <%- include('./partials/footer.ejs') %>
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/plugins/owl.carousel.min.js"></script>
-<script src="js/index.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+      <script src="https://js.stripe.com/v3/"></script>
+      <script src="js/jquery-3.2.1.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/checkout.js"></script>
+      <script src="js/cart.js"></script>
+      <script src="js/index.js"></script>
+
 </body>
 </html>

@@ -12,7 +12,7 @@
 		<h1>Blog Posts</h1>
 		<div class="d-flex justify-content-between align-items-center mb-3">
 			<h2>Post List</h2>
-			<a class="nav-link" href=""><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPostModal">Add Post</button></a>
+			<a class="nav-link" href="/blog-post/create"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPostModal">Add Post</button></a>
 		</div>
 	
 		<table class="table">
@@ -25,15 +25,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% blogPosts.forEach((blogPost) => { %>
+				<% blog.forEach((blog) => { %>
 					<tr>
-						<td><%= blogPost.title %></td>
-						<td><%= blogPost.author %></td>
-						<td><%= blogPost.date %></td>
+						<td><%= blog.title %></td>
+						<td><%= blog.author %></td>
+						<td><%= blog.timeCreated.toLocaleDateString() %></td>
 						<td>
 							<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editPostModal">
-								<a href="/<%= blogPost._id %>/editblog">Edit</a></button>
-							<form method="POST" action="/blog-posts/<%= blogPost.id %>/delete">
+								<a href="/blog-post/edit/<%= blog.id %> ">Edit</a></button>
+							<form method="POST" action="/blog-post/<%=blog.id%>?_method=DELETE">
 								<button type="submit" class="btn btn-danger btn-sm">Delete</button>
 							</form>
 						</td> 
@@ -56,7 +56,7 @@
     <script src="/js/admin.js"></script>
   
 
-<script src="js/index.js"></script>
+<script src="/js/index.js"></script>
 </body>
 
 </html>

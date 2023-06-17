@@ -14,19 +14,19 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="addPostModalLabel">Add Food</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <a href="/foodmenu"><span aria-hidden="true">&times;</span></a>
+                            <a href="/menu-posts"><span aria-hidden="true">&times;</span></a>
                         </button>
                     </div>
                     
                     <div class="modal-body">
-                        <form method="POST" action="/mymenu">
+                        <form method="POST" action="/menu-post">
                             <div class="form-group">
-                                <label for="postName">Title</label>
-                                <input type="text" class="form-control" id="postName" required>
+                                <label for="postName">Name</label>
+                                <input type="text" name="name" class="form-control" id="postName" required>
                             </div>
                             <div class="form-group">
                                 <label for="postDescription">Description</label>
-                                <textarea class="form-control" id="postDescription" rows="5" required></textarea>
+                                <textarea class="form-control" name="description" id="postDescription" rows="5" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="postCategory">Category</label>
@@ -37,18 +37,18 @@
                                 <option value="Beverages">Beverages</option>
                                 <option value="Deserts">Deserts</option>
                                </select>
-                                
                             </div>
+
                             <div class="form-group">
                                 <label for="postPrice">Price</label>
-                                <input type="number" class="form-control" id="postPrice" required>
+                                <input name="price" type="number" class="form-control" id="postPrice" required>
                             </div>
                             <div class="form-group">
-                                <label for="postImage">Image</label>
-                                <input type="file" class="form-control-file" id="postImage" required>
+                                <label for="postImageMenu">Image</label>
+                                <input name="image" type="file" class="form-control-file" id="postImageMenu" required>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="/food-posts">Cancel</a></button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="/menu-posts">Cancel</a></button>
                                 <input type="submit" value="Add" class="btn btn-primary">
                             </div>
                         </form>
@@ -67,8 +67,8 @@
       <!-- Template Javascript -->
       <script src="/js/admin.js"></script>>
     
-  <script src="js/plugins/owl.carousel.min.js"></script>
-  <script src="js/index.js"></script>
+
+  <!-- <script src="js/index.js"></script> -->
 </body>
 
 </html>

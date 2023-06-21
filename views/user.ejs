@@ -15,7 +15,7 @@
 				<button onclick="ShowRegistrationForm()"  id="ShowRegistrationBtn">Create Account</button>
 			</div>
 			<div id="LoginFrom">
-				<form action="/login" method="post">
+				<form action="/login" method="post" onsubmit="submitForm(event)">
 					<div class="center">
 						<input id="LoginEmail" name="email" class="input-text" type="text" placeholder="Email Address"> 
 						<input id="LoginPassword" name="password" class="mt-10 input-text" type="password" placeholder="Password">
@@ -41,7 +41,7 @@
 				</p>
 			</div>
 			<div id="RegistrationFrom">
-				<form action="/register" method="post">
+				<form action="/register" method="post" onsubmit="submitForm(event)">
 					<div class="center">
 						<input id="RegiName" name="name" class="input-text" type="text" placeholder="Full Name">
 						<input id="RegiEmailAddres" name="email" class="input-text mt-10" type="email" placeholder="Email Address">

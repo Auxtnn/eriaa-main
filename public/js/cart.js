@@ -71,9 +71,9 @@ function displayCartItems() {
     let minusBtn = document.createElement("button");
 
     nameCol.textContent = item.name;
-    priceCol.textContent = "$" + item.price;
+    priceCol.textContent = "CA$" + item.price;
     quantityCol.textContent = item.quantity;
-    subtotalCol.textContent = "$" + item.price * item.quantity;
+    subtotalCol.textContent = "CA$" + item.price * item.quantity;
     removeIcon.classList.add("fas", "fa-trash-alt", "dustbin-icon");
     removeBtn.appendChild(removeIcon);
     removeBtn.addEventListener("click", () => removeCartItem(index));
@@ -112,7 +112,7 @@ function displayCartItems() {
 
   // Update cart total
   let cartTotalElem = document.getElementById("cart-total");
-  cartTotalElem.textContent = "$" + calculateCartTotal();
+  cartTotalElem.textContent = "CA$" + calculateCartTotal();
 }
 
 // Initialize cart icon and count

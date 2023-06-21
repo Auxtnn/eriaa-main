@@ -1,52 +1,60 @@
-function ValidateLoginForm() {
-	RemoveAllErrorMessage();
-
-	var LoginEmail = document.getElementById('LoginEmail').value;
-	var LoginPassword = document.getElementById('LoginPassword').value;
-	var PasswordValidationMessage;
-	var emailValidationMessage;
-
-	emailValidationMessage = isValidEmail(LoginEmail);
-	if(emailValidationMessage != "valid"){
-		ShowErrorMessage('LoginEmail',emailValidationMessage);
-		return false;
-	}
-	
-	PasswordValidationMessage = isValidPassword(LoginPassword);
-	if(PasswordValidationMessage != "valid"){
-		ShowErrorMessage('LoginPassword',PasswordValidationMessage);
-		return false;
-	}
-
-    // Backend validation using fetch
-  fetch("/login", {
-   method: "POST",
-   headers: {
-     "Content-Type": "application/json"
-   },
-   body: JSON.stringify({ email: email })
- })
-   .then(response => response.json())
-   .then(data => {
-     if (!data.userExists) {
-       ShowErrorMessage('LoginEmail', 'User does not exist. Please register an account.');
-       return false;
-     } else {
-       
-       // submit the form programmatically
-       document.forms[0].submit();
-     }
+function submitForm(event) {
+   event.preventDefault();
+   return ValidateLoginForm();
+ }
+ 
+ function ValidateLoginForm() {
+   RemoveAllErrorMessage();
+ 
+   var LoginEmail = document.getElementById('LoginEmail').value;
+   var LoginPassword = document.getElementById('LoginPassword').value;
+   var PasswordValidationMessage;
+   var emailValidationMessage;
+ 
+   emailValidationMessage = isValidEmail(LoginEmail);
+   if (emailValidationMessage !== "valid") {
+     ShowErrorMessage('LoginEmail', emailValidationMessage);
+     return false;
+   }
+   
+   PasswordValidationMessage = isValidPassword(LoginPassword);
+   if (PasswordValidationMessage !== "valid") {
+     ShowErrorMessage('LoginPassword', PasswordValidationMessage);
+     return false;
+   }
+ 
+   // Backend validation using fetch
+   fetch("/login", {
+     method: "POST",
+     headers: {
+       "Content-Type": "application/json"
+     },
+     body: JSON.stringify({ email: email }) // Use LoginEmail instead of undefined email variable
    })
+     .then(response => response.json())
+     .then(data => {
+       if (!data.userExists) {
+         ShowErrorMessage('LoginEmail', 'User does not exist. Please register an account.');
+         return false;
+       } else {
+         // submit the form programmatically
+         document.forms[0].submit();
+       }
+     })
+     .catch(error => {
+       console.error("Error:", error);
+       return false;
+     });
+ 
+   return true;
+ }
+ 
 
-   .catch(error => {
-      console.error("Error:", error);
-      return false;
-    });
-	
-	return true;
-}
+function submitForm(event) {
+   event.preventDefault();
 
-function ValidateRegistrationForm(){
+   function ValidateRegistrationForm() {
+   
 
 	RemoveAllErrorMessage();
 
@@ -117,6 +125,7 @@ function ValidateRegistrationForm(){
      
 
    return true;
+}
 }
 
 

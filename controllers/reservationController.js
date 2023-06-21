@@ -71,7 +71,7 @@ const timeFormatted = moment(time, 'HH:mm').format('h:mm A');
     from: {
       name: 'eriaa',
     },
-    to: 'ikegod1995@gmail.com',
+    to: 'eriaaenquiries@gmail.com',
     subject: `New Reservation from ${name}`,
     html: `
     <html>

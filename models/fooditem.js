@@ -39,8 +39,8 @@ const foodSchema = new mongoose.Schema({
     },
    
     image: {
-        type: String,
-        required: true
+      public_id: String,
+      url: String
     },
 
     timeCreated: {
@@ -54,12 +54,9 @@ const foodSchema = new mongoose.Schema({
 
 foodSchema.pre('validate', function (next) {
     // Check if there is a description
-    if (this.content) {
+    if (this.description) {
       // Sanitize the description HTML
-      this.description = sanitizeHtml(this.content);
-  
-      // Strip HTML tags from the sanitized description
-      this.snippet = stripHtml(sanitizeHtml(this.content.substring(0, 200))).result;
+      this.description = sanitizeHtml(this.description);
     }
   
     next();

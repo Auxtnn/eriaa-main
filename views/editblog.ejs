@@ -20,7 +20,7 @@
             
             <div class="modal-body">
                
-                    <form method="POST" action="/blog-post/<%= blog._id %>?_method=PUT">
+                    <form method="POST" action="/blog-post/<%= blog._id %>?_method=PUT" enctype="multipart/form-data" >
 
                     <div class="form-group">
                         <label for="postTitle">Title</label>
@@ -31,16 +31,8 @@
                         <textarea class="form-control" name="content" id="postContent" rows="5" required><%= blog.content %></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="postAuthor">Author</label>
-                        <input type="text" name="author" class="form-control" value="<%= blog.author %>" id="postAuthor" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="postDate">Date</label>
-                        <input type="date" class="form-control" value="<%= blog.timeCreated.toLocaleDateString() %>" id="postDate" required >
-                    </div>
-                    <div class="form-group">
                         <label for="postImage">Image</label>
-                        <input type="file" name="image" class="form-control-file" value="<%= blog.image %>" id="postImage" required>
+                        <input type="file" name="image" class="form-control-file" value="<%= blog.image.public_id %>" id="postImage" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="/blog-posts">Cancel</a></button>
@@ -48,8 +40,8 @@
                     </div>
                 </form>
             </div>
-            
- 
+        </div>
+    </div>
 
 
 

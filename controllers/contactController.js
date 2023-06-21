@@ -59,7 +59,7 @@ exports.postContact = async (req, res) => {
     from: {
       name: 'éRiaa',
     },
-    to: 'ikegod1995@gmail.com',
+    to: 'eriaaenquiries',
     subject: 'New Contact Form Submission',
     html: `
       <html>

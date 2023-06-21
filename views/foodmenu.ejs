@@ -24,18 +24,17 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col" style="width: 20%;">Name</th>
-                        <th scope="col" style="width: 50%;">Description</th>
-                        <th scope="col" style="width: 10%;">Price</th>
-                        <th scope="col" style="width: 10%;">Category</th>
-                        <th scope="col" style="width: 10%;">Actions</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% menu.forEach((menu) => { %>
                         <tr>
                             <td><%= menu.name %></td>
-                            <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><%= menu.description %></td>
+
                             <td><%= menu.price %></td>
                             <td><%= menu.category %></td>
                             <td>

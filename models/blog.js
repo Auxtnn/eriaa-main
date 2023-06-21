@@ -30,19 +30,14 @@ const blogSchema = new mongoose.Schema({
         required: true,
     },
 
-    author: {
-        type: String,
-        required: true
+    snippet: {
+      type: String,
+      required: true
     },
   
     image: {
-        type: String,
-        required: true
-    },
-
-    snippet:{
-        //snippet is the first part of the blog post
-        type: String,
+      public_id: String,
+      url: String
     },
 
     timeCreated: {
@@ -54,17 +49,28 @@ const blogSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 blogSchema.pre('validate', function (next) {
-    // Check if there is a description
-    if (this.content) {
-      // Sanitize the description HTML
-      this.description = sanitizeHtml(this.content);
-  
-      // Strip HTML tags from the sanitized description
-      this.snippet = stripHtml(sanitizeHtml(this.content.substring(0, 200))).result;
+  // Check if there is content
+  if (this.content) {
+    // Sanitize the content HTML
+    this.content = sanitizeHtml(this.content);
+
+    // Strip HTML tags from the sanitized content
+    const strippedContent = stripHtml(this.content);
+
+    // Truncate the content at a word boundary
+    const maxLength = 200;
+    if (strippedContent.length > maxLength) {
+      const truncatedContent = strippedContent.substring(0, maxLength);
+      const lastSpaceIndex = truncatedContent.lastIndexOf(' ');
+      this.snippet = truncatedContent.substring(0, lastSpaceIndex) + '...';
+    } else {
+      this.snippet = strippedContent;
     }
-  
-    next();
-  });
+  }
+
+  next();
+});
+
   
 
 module.exports = mongoose.model('Blog', blogSchema);

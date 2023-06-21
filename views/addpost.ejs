@@ -20,7 +20,7 @@
                     </div>
                     
                     <div class="modal-body">
-                        <form method="POST" action="/blog-post">
+                        <form method="POST" action="/blog-post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="postTitle">Title</label>
                                 <input type="text" name="title" class="form-control" id="postTitle" required>
@@ -29,10 +29,7 @@
                                 <label for="postContent">Content</label>
                                 <textarea class="form-control" name="content" id="postContent" rows="5" required></textarea>
                             </div>
-                            <div class="form-group">
-                                <label for="postAuthor">Author</label>
-                                <input type="text" name="author" class="form-control" id="postAuthor" required>
-                            </div>
+                           
                         
                             <div class="form-group">
                                 <label for="postImage">Image</label>

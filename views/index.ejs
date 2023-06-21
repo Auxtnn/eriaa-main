@@ -289,7 +289,6 @@
 
 <!-- MENU SECTION -->
 
-
 <section class="menu-items">
     <div class="container">
         <div class="row">
@@ -304,332 +303,156 @@
                 <div class="wrapper">
                    <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
                        <li class="nav-item">
-                           <a class="nav-link active" id="cooked-item" data-toggle="tab" href="#cooked" role="tab" aria-controls="all" aria-selected="true">Cooked</a>
+                           <a class="nav-link active" id="cooked-items" data-toggle="tab" href="#cooked" role="tab" aria-controls="all" aria-selected="true">Cooked</a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link" id="grill-items" data-toggle="tab" href="#grill" role="tab" aria-controls="profile" aria-selected="false">Grill</a>
+                           <a class="nav-link" id="grilled-items" data-toggle="tab" href="#grilled" role="tab" aria-controls="profile" aria-selected="false">Grilled</a>
                        </li>
                        <li class="nav-item">
                            <a class="nav-link" id="baked-items" data-toggle="tab" href="#baked" role="tab" aria-controls="contact" aria-selected="false">Baked</a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link" id="deserts-item" data-toggle="tab" href="#deserts" role="tab" aria-controls="contact" aria-selected="false">Deserts</a>
+                           <a class="nav-link" id="desserts-item" data-toggle="tab" href="#desserts" role="tab" aria-controls="contact" aria-selected="false">Desserts</a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link" id="beverage-item" data-toggle="tab" href="#beverage" role="tab" aria-controls="contact" aria-selected="false">Beverage</a>
+                           <a class="nav-link" id="beverage-item" data-toggle="tab" href="#beverage" role="tab" aria-controls="contact" aria-selected="false">Beverages</a>
                        </li>
                    </ul>
 
-                   <div class="tab-content" id="myTabContent">
-                       <div class="tab-pane fade show active" id="cooked" role="tabpanel" aria-labelledby="cooked-item">
-                           <div class="row">
-                               
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                   <figure>
-                                       <div class="images">
-                                           <img src="images/menu/1.jpg">
-                                       </div>
-                                       <div class="content">
-                                           <h4>Almond Baked Brie<span>$10</span></h4>
-                                           <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                           <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                       </div>
-                                   </figure>
-                               </div>
-                               <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                   <figure>
-                                       <div class="images">
-                                           <img src="images/menu/2.jpg">
-                                       </div>
-                                       <div class="content">
-                                           <h4>Tuscan Flatbread<span>$10</span></h4>
-                                           <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                           <button class="add-to-cart" data-name="Almond" data-price="10">Add to Cart</button>
-                                       </div>
-                                   </figure>
-                               </div>
-                               <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/3.jpg">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="cooked" role="tabpanel" aria-labelledby="cooked-items">
+                            <div class="row" id="cooked-menu-items">
+                                <% categories.Cooked.slice(0, 3).forEach(function(menu) { %>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 menu-item" id="sec-meal">
+                                        <figure>
+                                            <div class="images">
+                                                <img src="<%= menu.image.url %>" alt="Menu Image" width="350" height="250">
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="menu-name"><%= menu.name %> <span>CA$<%= menu.price %></span></h4>
+                                                
+            
+                                                <p class="menu-description"><%= menu.description %></p>
+                                                
+                                                <button class="add-to-cart" data-name="<%= menu.name %>" data-price="<%= menu.price %>">Add to Cart</button>
+                                            </div>
+                                        </figure>
                                     </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
+                                <% }) %>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="grill" role="tabpanel" aria-labelledby="grill-items">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/4.jpg">
+    
+                        <div class="tab-pane fade" id="grilled" role="tabpanel" aria-labelledby="grilled-items">
+                            <div class="row" id="grilled-menu-items">
+                                <% categories.Grilled.slice(0, 3).forEach(function(menu) { %>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 menu-item" id="sec-meal">
+                                        <figure>
+                                            <div class="images">
+                                                <img src="<%= menu.image.url %>" alt="Menu Image" width="350" height="250">
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="menu-name"><%= menu.name %> <span>CA$<%= menu.price %></span></h4>
+                                                <p class="menu-description"><%= menu.description %></p>
+                                                <button class="add-to-cart" data-name="<%= menu.name %>" data-price="<%= menu.price %>">Add to Cart</button>
+                                            </div>
+                                        </figure>
                                     </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/5.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Tuscan Flatbread<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/6.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Almond Baked Brie<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
+                                <% }) %>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="baked" role="tabpanel" aria-labelledby="baked-items">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/4.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/5.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/2.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
+    
+                        <div class="tab-pane fade" id="baked" role="tabpanel" aria-labelledby="baked-items">
+                            <div class="row" id="baked-menu-items">
+                                <% categories.Baked.slice(0, 3).forEach(function(menu) { %>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 menu-item" id="sec-meal">
+                                        <figure>
+                                            <div class="images">
+                                                <img src="<%= menu.image.url %>" alt="Menu Image" width="350" height="250">
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="menu-name"><%= menu.name %> <span>CA$<%= menu.price %></span></h4>
+                                                <p class="menu-description"><%= menu.description %></p>
+                                                <button class="add-to-cart" data-name="<%= menu.name %>" data-price="<%= menu.price %>">Add to Cart</button>
+                                            </div>
+                                        </figure>
+                                    </div>       
+                                <% }) %>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="deserts" role="tabpanel" aria-labelledby="deserts-item">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/1.jpg">
+    
+                        <div class="tab-pane fade" id="desserts" role="tabpanel" aria-labelledby="desserts-item">
+                            <div class="row" id="desserts-menu-items">
+                                <% categories.Desserts.slice(0, 3).forEach(function(menu) { %>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
+                                        <figure>
+                                            <div class="images">
+                                                <img src="<%= menu.image.url %>" alt="Menu Image" width="350" height="250">
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="menu-name"><%= menu.name %> <span>CA$<%= menu.price %></span></h4>
+                                                <p class="menu-description"><%= menu.description %></p>
+                                                <button class="add-to-cart" data-name="<%= menu.name %>" data-price="<%= menu.price %>">Add to Cart</button>
+                                            </div>
+                                        </figure>
                                     </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/2.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/3.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
+                                <% }) %>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="beverage" role="tabpanel" aria-labelledby="beverage-item">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/4.jpg">
+    
+                        <div class="tab-pane fade" id="beverage" role="tabpanel" aria-labelledby="beverage-item">
+                            <div class="row" id="beverage-menu-items">
+                                <% categories.Beverages.slice(0, 3).forEach(function(menu) { %>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
+                                        <figure>
+                                            <div class="images">
+                                                <img src="<%= menu.image.url %>" alt="Menu Image" width="350" height="250">
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="menu-name"><%= menu.name %> <span>CA$<%= menu.price %></span></h4>
+                                                <p class="menu-description"><%= menu.description %></p>
+                                                <button class="add-to-cart" data-name="<%= menu.name %>" data-price="<%= menu.price %>">Add to Cart</button>
+                                            </div>
+                                        </figure>
                                     </div>
-                                    <div class="content">
-                                        <h4>Almond Baked Brie<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/6.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Tuscan Flatbread<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/3.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
+                                <% }) %>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-         </div>
-     </div>
- </div>
-</section>
-
-<section class="bg-06" id="blog">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="heading">
-                    <h4>Blog</h4>
-                    <h2>Explore Our News</h2>
-                    <p>At éRiaa, we're all about creating an experience that's both relaxing and entertaining. Our news blog is just one more way to keep you informed and engaged with our brand. So take a look around, explore our latest posts, and discover all that we have to offer.</p>
-                </div>
-            </div>
-
-            <div class="blog-main-card d-flex">
-                <article class="blog-sub">
-                    <div class="blog-content">
-                    <img src="images/blog/1.jpg">
-                    </div>
-                    <div class="blog-content-date">
-                        Mar
-                        <span> 13</span>
-                    </div>
-                    <div class="blog-content-section">
-                    <div class="blo-content-title">
-                        <h4>Possession so comparison inquietude he conviction </h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla imperdiet, libero vel laoreet pharetra, augue velit varius sapien, vel aliquet nisl nisi eu ipsum. Sed id orci vel nisl malesuada elementum. Sed vel felis quis leo pulvinar efficitur. Ut vel tellus metus.</p>
-                       
-                        <p class="read-more">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque at numquam, asperiores aut
-                        praesentium
-                        facilis ratione! Voluptatibus neque dignissimos ipsa atque veniam sint omnis in blanditiis, nemo fugit
-                        animi assumenda.</p>
-                    </div>
-                    <div class="blog-admin">
-                        <ol>
-                        <li><i class="fa fa-user-tie"></i> By Admin</li>
-                        <li><i class="fa fa-calendar-alt"></i> july 28, 2020</li>
-                        </ol>
-                    </div>
-                    </div>
-                </article>
-
-                <article class="blog-sub">
-                    <div class="blog-content">
-                    <img src="images/blog/2.jpg">
-                    </div>
-                    <div class="blog-content-date">
-                        Mar
-                        <span> 13</span>
-                    </div>
-                    <div class="blog-content-section">
-                    <div class="blo-content-title">
-                        <h4>Possession so comparison inquietude he conviction </h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla imperdiet, libero vel laoreet pharetra, augue velit varius sapien, vel aliquet nisl nisi eu ipsum. Sed id orci vel nisl malesuada elementum. Sed vel felis quis leo pulvinar efficitur. Ut vel tellus metus.</p>
-                    
-                        <p class="read-more">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque at numquam, asperiores aut
-                        praesentium
-                        facilis ratione! Voluptatibus neque dignissimos ipsa atque veniam sint omnis in blanditiis, nemo fugit
-                        animi assumenda.</p>
-                    </div>
-                    <div class="blog-admin">
-                        <ol>
-                        <li><i class="fa fa-user-tie"></i> By Admin</li>
-                        <li><i class="fa fa-calendar-alt"></i> july 28, 2020</li>
-                        </ol>
-                    </div>
-                    </div>
-                </article>
-
-                <article class="blog-sub">
-                    <div class="blog-content">
-                    <img src="images/blog/3.jpg">
-                    </div>
-                    <div class="blog-content-date">
-                        Mar
-                        <span> 13</span>
-                    </div>
-                    <div class="blog-content-section">
-                    <div class="blo-content-title">
-                        <h4>Possession so comparison inquietude he conviction </h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla imperdiet, libero vel laoreet pharetra, augue velit varius sapien, vel aliquet nisl nisi eu ipsum. Sed id orci vel nisl malesuada elementum. Sed vel felis quis leo pulvinar efficitur. Ut vel tellus metus.</p>
-                       
-                        <p class="read-more">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque at numquam, asperiores aut
-                        praesentium
-                        facilis ratione! Voluptatibus neque dignissimos ipsa atque veniam sint omnis in blanditiis, nemo fugit
-                        animi assumenda.</p>
-                    </div>
-                    <div class="blog-admin">
-                        <ol>
-                        <li><i class="fa fa-user-tie"></i> By Admin</li>
-                        <li><i class="fa fa-calendar-alt"></i> july 28, 2020</li>
-                        </ol>
-                    </div>
-                    </div>
-                </article>
             </div>
         </div>
     </div>
 </section>
-      
+
+<section class="se-fives">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="wrapper">
+                    <a href="/menu">View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+        
+<section class="map menu-items">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="col-12">
+                    <div class="heading">
+                        <h2 style="color: #ad4d19;">Our Location</h2>
+                    </div>
+                </div>
+    <iframe style="width:100%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2497.1546137861105!2d-114.01965608474826!3d51.2530625370891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53715fc9ef621961%3A0x72a1e876994578e2!2s262%20Hillcrest%20Heights%20SW%2C%20Airdrie%2C%20AB%20T4B%202R9%2C%20Canada!5e0!3m2!1sen!2sng!4v1678549884032!5m2!1sen!2sng" height="450" frameborder="0"; allowfullscreen="" loading="lazy"></iframe>
+</div>
+</div>
+</div>
+</section>  
 
 
 </main>

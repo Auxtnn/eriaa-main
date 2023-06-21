@@ -34,7 +34,6 @@
 
 
 
-
 <section class="menu-items">
     <div class="container">
         <div class="row">
@@ -49,600 +48,128 @@
                 <div class="wrapper">
                    <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
                        <li class="nav-item">
-                           <a class="nav-link active" id="cooked-item" data-toggle="tab" href="#cooked" role="tab" aria-controls="all" aria-selected="true">Cooked</a>
+                           <a class="nav-link active" id="cooked-items" data-toggle="tab" href="#cooked" role="tab" aria-controls="all" aria-selected="true">Cooked</a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link" id="grill-items" data-toggle="tab" href="#grill" role="tab" aria-controls="profile" aria-selected="false">Grill</a>
+                           <a class="nav-link" id="grilled-items" data-toggle="tab" href="#grilled" role="tab" aria-controls="profile" aria-selected="false">Grilled</a>
                        </li>
                        <li class="nav-item">
                            <a class="nav-link" id="baked-items" data-toggle="tab" href="#baked" role="tab" aria-controls="contact" aria-selected="false">Baked</a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link" id="deserts-item" data-toggle="tab" href="#deserts" role="tab" aria-controls="contact" aria-selected="false">Deserts</a>
+                           <a class="nav-link" id="desserts-item" data-toggle="tab" href="#desserts" role="tab" aria-controls="contact" aria-selected="false">Desserts</a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link" id="beverage-item" data-toggle="tab" href="#beverage" role="tab" aria-controls="contact" aria-selected="false">Beverage</a>
+                           <a class="nav-link" id="beverage-item" data-toggle="tab" href="#beverage" role="tab" aria-controls="contact" aria-selected="false">Beverages</a>
                        </li>
                    </ul>
 
-                   <div class="tab-content" id="myTabContent">
-                       <div class="tab-pane fade show active" id="cooked" role="tabpanel" aria-labelledby="cooked-item">
-                           <div class="row">
-                               
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                   <figure>
-                                       <div class="images">
-                                           <img src="images/menu/1.jpg">
-                                       </div>
-                                       <div class="content">
-                                           <h4>Almond Baked Brie<span>$10</span></h4>
-                                           <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                           <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                       </div>
-                                   </figure>
-                               </div>
-                               <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                   <figure>
-                                       <div class="images">
-                                           <img src="images/menu/2.jpg">
-                                       </div>
-                                       <div class="content">
-                                           <h4>Tuscan Flatbread<span>$10</span></h4>
-                                           <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                           <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                       </div>
-                                   </figure>
-                               </div>
-                               <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/3.jpg">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="cooked" role="tabpanel" aria-labelledby="cooked-items">
+                            <div class="row" id="cooked-menu-items">
+                                <% categories.Cooked.forEach(function(menu) { %>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 menu-item" id="sec-meal">
+                                        <figure>
+                                            <div class="images">
+                                                <img src="<%= menu.image.url %>" alt="Menu Image" width="350" height="250">
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="menu-name"><%= menu.name %> <span>CA$<%= menu.price %></span></h4>
+                                                
+            
+                                                <p class="menu-description"><%= menu.description %></p>
+                                                
+                                                <button class="add-to-cart" data-name="<%= menu.name %>" data-price="<%= menu.price %>">Add to Cart</button>
+                                            </div>
+                                        </figure>
                                     </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                                 
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/4.jpg" >
-                                    </div>
-                                    <div class="content">
-                                        <h4>Almond Baked Brie<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/5.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Tuscan Flatbread<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                             <figure>
-                                 <div class="images">
-                                     <img src="images/menu/6.jpg">
-                                 </div>
-                                 <div class="content">
-                                     <h4>Spicy Clup<span>$10</span></h4>
-                                     <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                     <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                 </div>
-                             </figure>
-                         </div>
-                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                            <figure>
-                                <div class="images">
-                                    <img src="images/menu/3.jpg" >
-                                </div>
-                                <div class="content">
-                                    <h4>Almond Baked Brie<span>$10</span></h4>
-                                    <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                    <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                </div>
-                            </figure>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                            <figure>
-                                <div class="images">
-                                    <img src="images/menu/1.jpg">
-                                </div>
-                                <div class="content">
-                                    <h4>Tuscan Flatbread<span>$10</span></h4>
-                                    <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                    <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                </div>
-                            </figure>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                         <figure>
-                             <div class="images">
-                                 <img src="images/menu/2.jpg">
-                             </div>
-                             <div class="content">
-                                 <h4>Spicy Clup<span>$10</span></h4>
-                                 <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                 <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                             </div>
-                         </figure>
-                     </div>
-                        </div>
-                    </div>
-
-                    
-
-                    <div class="tab-pane fade" id="grill" role="tabpanel" aria-labelledby="grill-items">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/4.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/5.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Tuscan Flatbread<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/6.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Almond Baked Brie<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/4.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/5.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Tuscan Flatbread<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/6.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Almond Baked Brie<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/4.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/5.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Tuscan Flatbread<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/6.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Almond Baked Brie<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
+                                <% }) %>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="baked" role="tabpanel" aria-labelledby="baked-items">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/4.jpg">
+    
+                        <div class="tab-pane fade" id="grilled" role="tabpanel" aria-labelledby="grilled-items">
+                            <div class="row" id="grilled-menu-items">
+                                <% categories.Grilled.forEach(function(menu) { %>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 menu-item" id="sec-meal">
+                                        <figure>
+                                            <div class="images">
+                                                <img src="<%= menu.image.url %>" alt="Menu Image" width="350" height="250">
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="menu-name"><%= menu.name %> <span>CA$<%= menu.price %></span></h4>
+                                                <p class="menu-description"><%= menu.description %></p>
+                                                <button class="add-to-cart" data-name="<%= menu.name %>" data-price="<%= menu.price %>">Add to Cart</button>
+                                            </div>
+                                        </figure>
                                     </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/5.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/2.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/4.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/5.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Tuscan Flatbread<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/6.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Almond Baked Brie<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/4.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/5.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Tuscan Flatbread<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/6.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Almond Baked Brie<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
+                                <% }) %>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="deserts" role="tabpanel" aria-labelledby="deserts-item">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/1.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
+    
+                        <div class="tab-pane fade" id="baked" role="tabpanel" aria-labelledby="baked-items">
+                            <div class="row" id="baked-menu-items">
+                                <% categories.Baked.forEach(function(menu) { %>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 menu-item" id="sec-meal">
+                                        <figure>
+                                            <div class="images">
+                                                <img src="<%= menu.image.url %>" alt="Menu Image" width="350" height="250">
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="menu-name"><%= menu.name %> <span>CA$<%= menu.price %></span></h4>
+                                                <p class="menu-description"><%= menu.description %></p>
+                                                <button class="add-to-cart" data-name="<%= menu.name %>" data-price="<%= menu.price %>">Add to Cart</button>
+                                            </div>
+                                        </figure>
+                                    </div>       
+                                <% }) %>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/2.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/3.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                    
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/4.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/5.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Tuscan Flatbread<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/6.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Almond Baked Brie<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/1.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/2.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Tuscan Flatbread<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/1.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Almond Baked Brie<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-
                         </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="beverage" role="tabpanel" aria-labelledby="beverage-item">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/4.jpg">
+    
+                        <div class="tab-pane fade" id="desserts" role="tabpanel" aria-labelledby="desserts-item">
+                            <div class="row" id="desserts-menu-items">
+                                <% categories.Desserts.forEach(function(menu) { %>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
+                                        <figure>
+                                            <div class="images">
+                                                <img src="<%= menu.image.url %>" alt="Menu Image" width="350" height="250">
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="menu-name"><%= menu.name %> <span>CA$<%= menu.price %></span></h4>
+                                                <p class="menu-description"><%= menu.description %></p>
+                                                <button class="add-to-cart" data-name="<%= menu.name %>" data-price="<%= menu.price %>">Add to Cart</button>
+                                            </div>
+                                        </figure>
                                     </div>
-                                    <div class="content">
-                                        <h4>Almond Baked Brie<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
+                                <% }) %>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/6.jpg">
+                        </div>
+    
+                        <div class="tab-pane fade" id="beverage" role="tabpanel" aria-labelledby="beverage-item">
+                            <div class="row" id="beverage-menu-items">
+                                <% categories.Beverages.forEach(function(menu) { %>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
+                                        <figure>
+                                            <div class="images">
+                                                <img src="<%= menu.image.url %>" alt="Menu Image" width="350" height="250">
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="menu-name"><%= menu.name %> <span>CA$<%= menu.price %></span></h4>
+                                                <p class="menu-description"><%= menu.description %></p>
+                                                <button class="add-to-cart" data-name="<%= menu.name %>" data-price="<%= menu.price %>">Add to Cart</button>
+                                            </div>
+                                        </figure>
                                     </div>
-                                    <div class="content">
-                                        <h4>Tuscan Flatbread<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/3.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                        
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/4.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/5.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Tuscan Flatbread<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/6.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Almond Baked Brie<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/1.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Spicy Clup<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/2.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Tuscan Flatbread<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" id="sec-meal">
-                                <figure>
-                                    <div class="images">
-                                        <img src="images/menu/1.jpg">
-                                    </div>
-                                    <div class="content">
-                                        <h4>Almond Baked Brie<span>$10</span></h4>
-                                        <p>Pork, chicken and vegetable fried rolls served with lettuce wraps</p>
-                                        <button class="add-to-cart" data-name="Almond Baked" data-price="10">Add to Cart</button>
-                                    </div>
-                                </figure>
+                                <% }) %>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-         </div>
-     </div>
- </div>
+        </div>
+    </div>
 </section>
+
+
 
 </main>
 
@@ -653,6 +180,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/plugins/owl.carousel.min.js"></script>
 <script src="js/index.js"></script>
+<script src="js/menu.js"></script>
 <script src="js/cart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 

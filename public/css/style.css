@@ -6,6 +6,13 @@ body {
   font-weight: 600;
 }
 
+/* MENU IMAGES */
+figure .images{
+  width: 350px;
+  height: 250px;
+  overflow: hidden;
+}
+
 
 * {
   margin: 0;
@@ -949,6 +956,37 @@ margin-left: -1rem;
         border-radius: 1.25rem;
         cursor: pointer;
     }
+
+    
+.se-fives {
+ padding: 5rem 0 0,
+  position: relative;
+  
+}
+
+  
+
+  .se-fives .wrapper {
+    display: inline-block;
+    width: 100%;
+    padding: 3.5rem 0 3.5rem 0;
+    position: relative;
+    margin: 5rem 0;
+    text-align: center;
+    z-index: 2;
+  }
+
+    .se-fives .wrapper a {
+      display: inline-block;
+      padding: .725rem 1.125rem;
+      background: #ad4d19;
+      color: #fff;
+      font-size: 1.5rem;
+      text-transform: capitalize;
+      letter-spacing: .5px;
+      border-radius: 1.25rem;
+      cursor: pointer;
+  }
 
 /* SERVICES SECTION */
 
@@ -2046,75 +2084,20 @@ tr:nth-child(even) {
   color: #dfa585; /* Set the desired color */
   font-size: 14px; /* Adjust the size as needed */
 }
+.truncated-content {
+  text-align: justify;
+} 
 
-@media screen and (max-width: 376px) {
-  .table-responsive {
-    overflow-x: auto;
-    display: block;
-  }
+.blog-sup{
+  text-align: justify;
+  color: #545454;
+}
 
-  .table {
-    width: 100%;
-  }
-
-  .table thead,
-  .table tbody,
-  .table tfoot,
-  .table tr,
-  .table th,
-  .table td {
-    display: block;
-  }
-
-  .table tbody tr {
-    border: none;
-  }
-
-  .table thead th {
-    display: none;
-  }
-
-  .table tbody td {
-    position: relative;
-    padding-left: 50%;
-    text-align: left;
-  }
-
-
-  
-
-  .table tbody td:before {
-    position: absolute;
-    top: 0;
-    left: 6px;
-    width: 55%;
-    padding-right: 10px;
-    white-space: nowrap;
-  }
-
-  .table tbody td:nth-of-type(1):before {
-    content: "Meal Name";
-  }
-
-  .table tbody td:nth-of-type(2):before {
-    content: "Price";
-  }
-
-  .table tbody td:nth-of-type(3):before {
-    content: "Quantity";
-  }
-
-  .table tbody td:nth-of-type(4):before {
-    content: "SubTot";
-  }
-
-  .table tbody td:nth-of-type(5):before {
-    content: "Action";
-  }
-
-  .table tfoot {
-    display: none;
-  }
+.blo-content h4{
+  text-align: center;
+  margin: 0 auto;
+  color: #ad4d19;
+  text-transform: uppercase;
 }
 
 .submit button {
@@ -2495,3 +2478,9 @@ background-size: cover;
   }
 }
 
+@media screen and (max-width: 676px){
+  .thank-you{
+    margin: -10rem 0;
+    padding: 0rem 2rem;
+  }
+}

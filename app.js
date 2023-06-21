@@ -39,13 +39,7 @@ app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('public', {
-  setHeaders: (res, path) => {
-    if (mime.getType(path) === 'application/javascript') {
-      res.setHeader('Content-Type', 'application/javascript');
-    }
-  },
-}));
+app.use(express.static('public'));
 app.use(
   session({
     secret: process.env.JWT_SECRET,

@@ -31,7 +31,7 @@ const upload = multer({
 });
 
 // GET all blog posts on admin dashboard
-const getBlogPosts = async (req, res) => {
+exports.getBlogPosts = async (req, res) => {
   try {
     const blog = await Blog.find().sort({ timeCreated: 'desc' });
     res.render('blogpost', { blog: blog });
@@ -41,7 +41,7 @@ const getBlogPosts = async (req, res) => {
   }
 };
 
-const getBlog = async (req, res) => {
+exports.getBlog = async (req, res) => {
   try {
     // Fetch the blog data from the database or API
     const blog = await Blog.find().sort({ timeCreated: 'desc' });; // Replace with your fetch logic
@@ -56,11 +56,11 @@ const getBlog = async (req, res) => {
 };
 
 // GET create blog post form
-const getBlogCreate = (req, res) => {
+exports.getBlogCreate = (req, res) => {
   res.render('addpost');
 };
 // GET MENU POST
-const blogCreatePost = async (req, res) => {
+exports.blogCreatePost = async (req, res) => {
   upload.single('image')(req, res, async (err) => {
     if (err) {
       console.error(err);
@@ -92,7 +92,7 @@ const blogCreatePost = async (req, res) => {
 
 
 // GET show blog post on main website
-const showMainBlog = async (req, res) => {
+exports.showMainBlog = async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
     res.render('mainBlogShow', { blog: [blog] }); // Pass the blog as an array
@@ -105,7 +105,7 @@ const showMainBlog = async (req, res) => {
 
 
 // GET edit blog post form
-const blogEditGet = async (req, res) => {
+exports.blogEditGet = async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
     res.render('editblog', { blog: blog });
@@ -116,7 +116,7 @@ const blogEditGet = async (req, res) => {
 };
 
 // PUT update blog post
-const blogEditPut = async (req, res) => {
+exports.blogEditPut = async (req, res) => {
   try {
     const { title, content, snippet } = req.body;
     const blog = await Blog.findByIdAndUpdate(req.params.id);
@@ -152,7 +152,7 @@ const blogEditPut = async (req, res) => {
 
   
   // DELETE blog post
-  const blogDelete = async (req, res) => {
+  exports.blogDelete = async (req, res) => {
   try {
   const blog = await Blog.findById(req.params.id);
   // Delete image from Cloudinary
@@ -166,14 +166,4 @@ const blogEditPut = async (req, res) => {
     }
     };
     
-    module.exports = {
-    getBlogPosts,
-    getBlogCreate,
-    getBlog,
-    blogCreatePost,
-    blogEditGet,
-    blogEditPut,
-    blogDelete,
-    showMainBlog
-    };
-
+    

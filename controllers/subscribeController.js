@@ -51,7 +51,7 @@ exports.postSubscribe = async (req, res) => {
     from: {
       name: 'eriaa',
     },
-    to: 'ikegod1995@gmail.com',
+    to: 'eriaaenquiries@gmail.com',
     subject: 'New Newsletter Subscription',
     html: `
       <html>

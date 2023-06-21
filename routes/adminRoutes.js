@@ -7,6 +7,6 @@ const { ensureAdminLoggedIn } = require('../controllers/adminController');
 router.get('/admin/dashboard', ensureAdminLoggedIn, adminController.getAdmin);
 router.get('/admin/login', adminController.getAdminLogin);
 router.post('/admin/login', adminController.postAdminLogin);
-router.get('/admin/logout', adminController.getAdminLogout);
+router.delete('/admin/logout', adminController.getAdminLogout);
 
 module.exports = router;

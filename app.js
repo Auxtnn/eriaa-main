@@ -18,9 +18,9 @@ require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 
 const MONGODB_URI =
-  process.env.MONGODB_URI ||
-  'mongodb+srv://eriaaenquiries:Makeweunwind@eriaa.xgd8ess.mongodb.net/eriaa?retryWrites=true&w=majority';
-mongoose
+  process.env.MONGODB_URI
+  
+  mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to the database');

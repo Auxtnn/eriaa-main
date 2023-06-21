@@ -8,8 +8,10 @@ body {
 
 /* MENU IMAGES */
 figure .images{
-  width: 350px;
-  height: 250px;
+  overflow: hidden;
+}
+
+.blog-content a img{
   overflow: hidden;
 }
 
@@ -18,6 +20,8 @@ figure .images{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+    overflow: visible;
 }
 
 ul, ol {
@@ -642,6 +646,21 @@ padding: 0;
 .se-second img{
 margin-left: -1rem;
 /* max-width: 10rem; */
+
+animation: floatImage 4s ease-in-out infinite;
+}
+
+
+@keyframes floatImage{
+  0% {
+    transform: translateY(0)
+  }
+  50% {
+    transform: translateY(-2.4rem)
+  }
+  100% {
+    transform: translateY(0)
+  }
 }
 
 @media screen and (max-width: 576px){
@@ -715,7 +734,7 @@ margin-left: -1rem;
       margin: .625rem 0;
       display: inline-block; }
   
-      .se-second .wrapper .content .shape-02 {
+      /* .se-second .wrapper .content .shape-02 {
         position: relative;
         background: url(../images/drum.png);
         background-repeat: no-repeat;
@@ -727,7 +746,7 @@ margin-left: -1rem;
         left: 80%;
     }
     .se-second .wrapper .content .shape-03{
-        position: absolute;
+        position: relative;
         background: url(../images/pngwing.com.png);
         background-repeat: no-repeat;
         height: 100%;
@@ -771,7 +790,7 @@ margin-left: -1rem;
       .se-second .wrapper .content .shape-03{
         display: none;
     }
-    }
+    } */
 
     
 
@@ -958,20 +977,11 @@ margin-left: -1rem;
     }
 
     
-.se-fives {
- padding: 5rem 0 0,
-  position: relative;
-  
-}
-
-  
 
   .se-fives .wrapper {
     display: inline-block;
     width: 100%;
-    padding: 3.5rem 0 3.5rem 0;
     position: relative;
-    margin: 5rem 0;
     text-align: center;
     z-index: 2;
   }
@@ -1269,19 +1279,6 @@ margin-left: -1rem;
             /* blog */
 
         
-            .read-more {
-              display: none;
-            }
-        
-            .show-more-btn {
-              background-color: #ad4d19;
-              color: white;
-              border: none;
-              padding: 5px 10px;
-              margin: 10px;
-              cursor: pointer;
-              font-size: 1.5rem;
-            }
         
     .bg-06{
         position: relative;
@@ -1697,6 +1694,7 @@ footer {
 .reservation {
   background-color: #fff;
   padding: 50px 30px;
+  background: url(../images/patrick-schneider-5xltWMpkN3E-unsplash.jpg)
 }
 
 .reservation h2 {
@@ -1719,6 +1717,7 @@ footer {
 
 .reservation .form-group {
   margin-bottom: 30px;
+  color:#fff;
 }
 
 .reservation input[type="text"],
@@ -1728,10 +1727,10 @@ footer {
 .reservation input[type="number"],
 .reservation input[type="time"],
 .reservation textarea {
-  border: 1px solid rgba(0, 0, 0, 0.788);
+  border: 1px solid #fff;
   border-radius: 20px;
   font-size: 15px;
-  color: #222;
+  color: #fff !important;
   padding: 15px;
   width: 100%;
   box-shadow: none;
@@ -1741,7 +1740,7 @@ footer {
 
 
 .reservation .form-group input::placeholder{
-  color: #222;
+  color: #fff;
   font-style: 'Roboto', sans-serif;
   font-family: 600;
   font-size:15px;

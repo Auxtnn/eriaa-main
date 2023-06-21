@@ -29,6 +29,12 @@ async function createCheckoutSession() {
   // Event listener for the checkout button
   document.getElementById('checkout-button').addEventListener('click', async () => {
     try {
+       // Check if the cart is empty
+    if (cartItems.length === 0) {
+      alert('Cart is empty. Please add items to your cart before checking out.');
+      return;
+    }
+
       // Create the checkout session
       const session = await createCheckoutSession();
   

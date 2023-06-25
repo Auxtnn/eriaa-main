@@ -31,7 +31,7 @@ const upload = multer({
 });
 
 // GET all menu posts on admin dashboard
-const getMenuPosts = async (req, res) => {
+exports.getMenuPosts = async (req, res) => {
   try {
     const menu = await Menu.find().sort({ timeCreated: 'desc' });
     res.render('foodmenu', { menu: menu });
@@ -41,7 +41,7 @@ const getMenuPosts = async (req, res) => {
   }
 };
 
-const getMenu = async (req, res) => {
+exports.getMenu = async (req, res) => {
   try {
     // Fetch the menu data from the database or API
     const menu = await Menu.find().sort({ timeCreated: 'desc' }); // Replace with your fetch logic
@@ -70,7 +70,7 @@ const getMenu = async (req, res) => {
 
 
 
-const getIndex = async (req, res) => {
+exports.getIndex = async (req, res) => {
   try {
     // Fetch the menu data from the database or API
     const menu = await Menu.find().sort({ timeCreated: 'desc' }) // Replace with your fetch logic
@@ -100,12 +100,12 @@ const getIndex = async (req, res) => {
 
 
 // GET create blog post form
-const getMenuCreate = (req, res) => {
+exports.getMenuCreate = (req, res) => {
   res.render('addfood');
 };
 
 // CREATE MENU POST
-const menuCreatePost = async (req, res) => {
+exports.menuCreatePost = async (req, res) => {
   upload.single('image')(req, res, async (err) => {
     if (err) {
       console.error(err);
@@ -134,7 +134,7 @@ const menuCreatePost = async (req, res) => {
 };
 
 // GET edit menu post form
-const menuEditGet = async (req, res) => {
+exports.menuEditGet = async (req, res) => {
   try {
     const menu = await Menu.findById(req.params.id);
     res.render('editfood', { menu: menu });
@@ -145,7 +145,7 @@ const menuEditGet = async (req, res) => {
 };
 
 // PUT update menu post
-const menuEditPut = async (req, res) => {
+exports.menuEditPut = async (req, res) => {
   try {
     const { name, description, category, price } = req.body;
     const menu = await Menu.findById(req.params.id);
@@ -181,7 +181,7 @@ if (req.file) {
 };
   
   // DELETE blog post
-  const menuDelete = async (req, res) => {
+  exports.menuDelete = async (req, res) => {
   try {
   const menu = await Menu.findById(req.params.id);
   // Delete image from Cloudinary
@@ -194,15 +194,3 @@ if (req.file) {
     res.status(500).send('Server error');
     }
     };
-    
-    module.exports = {
-    getMenuPosts,
-    getMenuCreate,
-    getMenu,
-    menuCreatePost,
-    menuEditGet,
-    menuEditPut,
-    menuDelete,
-    getIndex
-    };
-

@@ -76,7 +76,7 @@ const timeFormatted = moment(time, 'HH:mm').format('h:mm A');
     html: `
     <html>
       <body style="background-color: #222; color:#fff;">
-        <h3 style="color:#fff; padding: 30px">New Contact Form Submission:</h3>
+        <h3 style="color:#fff; padding: 30px">New Reservation Form Submission:</h3>
         <ul>
           <li><strong>Name: </strong>${name}</li> 
           <li><strong>Email: </strong>${email}</li>

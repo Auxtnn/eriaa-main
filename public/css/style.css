@@ -5,7 +5,18 @@ body {
   font-family: 'Red Rose', cursive; 
   font-weight: 600;
 }
+@media screen and (max-width: 580px){
+ /* MENU IMAGES */
+figure .images{
+  overflow: hidden; 
+  object-fit: cover;
+}
 
+.blog-content a img{
+  overflow: hidden;
+  object-fit: cover;
+} 
+}
 /* MENU IMAGES */
 figure .images{
   overflow: hidden;

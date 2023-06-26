@@ -15,7 +15,7 @@ const adminRoutes = require("./routes/adminRoutes");
 const { errorHandler } = require("./middleware/errorMiddleware");
 const bodyParser = require("body-parser");
 require("dotenv").config();
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
 const MONGODB_URI =
   process.env.MONGODB_URI

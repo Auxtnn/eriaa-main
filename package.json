@@ -37,7 +37,7 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
-    "sanitize-html": "^2.10.0",
+    "sanitize-html": "^2.12.1",
     "slug": "^8.2.2",
     "string-strip-html": "^13.4.1",
     "stripe": "^12.8.0",
